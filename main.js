@@ -34,7 +34,19 @@ userEmail = () => {
     }
 }
 
+//User Mobile Number Validation
+mobileNumber = () => {
+    let mobileNumPattern = /^([+]*[1-9]{1}[-]*)[-0-9]{1,4}[\" \"]([1-9]?[0-9]{9})$/;
+    let mobileNum = readlineSync.question('Enter your Mobile Number: ');
+    const result = mobileNum.match(mobileNumPattern);
+    if (result == null) {
+        console.log("Please Enter Mobile Number ");
+        mobileNumber();
+    }
+}
+
 firstName();
 console.log("HI " + first_Name + " !");
 lastName();
 userEmail();
+mobileNumber();

@@ -25,7 +25,7 @@ lastName = () => {
 
 //User Email Validation
 userEmail = () => {
-    let emailPattern = /^([a-z]+[0-9a-z-!#$%+^&*_.]*){3,15}@[a-z0-9]{1,8}[.]*([a-z]{2,4})*.[a-z]{2,4}/;
+    let emailPattern = /^([a-z]+[0-9a-z-!$%+&_.]*){3,15}@[a-z0-9]{1,8}[.]*([a-z]{2,4})*.[a-z]{2,4}/;
     let email = readlineSync.question('Enter your Email-Id: ');
     const result = email.match(emailPattern);
     if (result == null) {
@@ -40,7 +40,7 @@ mobileNumber = () => {
     let mobileNum = readlineSync.question('Enter your Mobile Number: ');
     const result = mobileNum.match(mobileNumPattern);
     if (result == null) {
-        console.log("Please Enter Mobile Number ");
+        console.log("Please Enter Mobile Number (Country Code <Space> Number)");
         mobileNumber();
     }
 }
@@ -58,7 +58,4 @@ userPassword = () => {
 
 firstName();
 console.log("HI " + first_Name + " !");
-lastName();
-userEmail();
-mobileNumber();
-userPassword();
+userPassword(mobileNumber(userEmail(lastName())));

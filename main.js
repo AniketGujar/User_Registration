@@ -45,8 +45,20 @@ mobileNumber = () => {
     }
 }
 
+//User Password Validation
+userPassword = () => {
+    let PasswordPattern = /[A-Za-z\\d@$!%*?&]{8,}/;
+    let password = readlineSync.question('Enter your Password: ', {hideEchoBack:true});
+    const result = password.match(PasswordPattern);
+    if (result == null) {
+        console.log("Please Enter Password:(1 Symbol, 1 Number, 1 UpperCase Letter, Min 8 Char) ");
+        userPassword();
+    }
+}
+
 firstName();
 console.log("HI " + first_Name + " !");
 lastName();
 userEmail();
 mobileNumber();
+userPassword();

@@ -47,11 +47,11 @@ mobileNumber = () => {
 
 //User Password Validation
 userPassword = () => {
-    let PasswordPattern = /(?=.*[A-Z])[A-Za-z\\d@$!%*?&]{8,}/;
+    let PasswordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,20}$/;
     let password = readlineSync.question('Enter your Password: ', {hideEchoBack:true});
     const result = password.match(PasswordPattern);
     if (result == null) {
-        console.log("Please Enter Password:(1 UpperCase Letter, Min 8 Char) ");
+        console.log("Please Enter Password:(1 Number, 1 UpperCase Letter, Min 8 Char) ");
         userPassword();
     }
 }

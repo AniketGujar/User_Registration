@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
   }
 }
